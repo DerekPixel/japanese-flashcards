@@ -75,15 +75,17 @@ function App() {
 
   const [randomizedCards, setRandomizedCards] = useState(shuffleArray(allCards))
 
-  var test = []
+  const resetCardsState = () => {
+    setRandomizedCards(shuffleArray(allCards));
+  }
 
-  if(typeof test[0] === 'undefined') {
-    console.log('yo');
+  if(typeof randomizedCards[0] === 'undefined') {
+    resetCardsState();
   }
 
   return (
     <div className="App">
-      <Flashcard cards={randomizedCards} />
+      <Flashcard cards={randomizedCards} reset={resetCardsState}/>
       <button onClick={() => setRandomizedCards(shiftRightAnswer(randomizedCards))} >I got it right</button>
       <button onClick={() => setRandomizedCards(pushAndShiftWrongAnswer(randomizedCards))} >I got it wrong</button>
     </div>
