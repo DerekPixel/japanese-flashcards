@@ -1,8 +1,6 @@
 
 const Flashcard = ({cards, reset}) => {
 
-  console.log(cards[0]);
-
   var jap, eng;
 
   jap = cards[0].japanese;
