@@ -79,6 +79,8 @@ function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
   const [japaneseInput, setJapaneseInput] = useState('');
   const [engInput, setEngInput] = useState('');
 
+  const [flip, setFlip] = useState('');
+
   const resetCardsState = () => {
     setRandomizedCards(shuffleArray(allCards));
   }
@@ -124,19 +126,38 @@ function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
 
   }
 
+  const handleSetFlip = () => {
+    if(flip === '') {
+      setFlip('flip');
+    } else {
+      setFlip('');
+    }
+  }
+
   return (
     <div className="App">
-      <Flashcard cards={randomizedCards} reset={resetCardsState}/>
-      <button 
-        onClick={() => setRandomizedCards(shiftRightAnswer(randomizedCards))} 
-      >
-        I got it right
-      </button>
-      <button 
-        onClick={() => setRandomizedCards(pushAndShiftWrongAnswer(randomizedCards))} 
-      >
-        I got it wrong
-      </button>
+      <div>
+        <Flashcard 
+          cards={randomizedCards} 
+          onDelete={() => deleteFlashcard()} 
+          flip={flip}
+          onClick={() => handleSetFlip()} 
+        />
+        <div className="right-wrong-buttons">
+          <button
+            className='correct'
+            onClick={() => setRandomizedCards(shiftRightAnswer(randomizedCards))}
+          >
+            I got it right
+          </button>
+          <button
+            className='incorrect'
+            onClick={() => setRandomizedCards(pushAndShiftWrongAnswer(randomizedCards))}
+          >
+            I got it wrong
+          </button>
+        </div>
+      </div>
       <Newcard 
         engInput={engInput} 
         japaneseInput={japaneseInput} 
@@ -144,11 +165,6 @@ function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
         japChange={event => setJapaneseInput(event.target.value)}
         onClick={() => pushNewFlashcardToCardsArrayAndUpdateLocalStorage()}
       />
-      <button
-        onClick={() => deleteFlashcard()}
-      >
-        Delete current Card
-      </button>
     </div>
   );
 }
