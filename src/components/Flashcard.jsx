@@ -1,5 +1,5 @@
 
-const Flashcard = ({cards, reset}) => {
+const Flashcard = ({cards, onDelete, flip,  onClick}) => {
 
   var jap, eng;
 
@@ -7,9 +7,10 @@ const Flashcard = ({cards, reset}) => {
   eng = cards[0]. eng;
   
   return (
-    <div>
-      <div className="flip-card">
-        <div className="flip-card-inner">
+    <div className='card'>
+      <button className='delete' onClick={onDelete} >Delete</button>
+      <div onClick={onClick} className="flip-card" >
+        <div className="flip-card-inner" id={flip}>
           <div className="flip-card-front">
             <h2>{jap}</h2>
           </div>
