@@ -90,9 +90,9 @@ function App() {
     allCardsCopy.push(newFlashcard);
 
     setAllCards(allCardsCopy);
-    setRandomizedCards(shuffleArray(allCards));
+    setRandomizedCards(shuffleArray(allCardsCopy));
 
-    window.localStorage.setItem('usersFlashcards', JSON.stringify(allCards));
+    window.localStorage.setItem('usersFlashcards', JSON.stringify(allCardsCopy));
   }
 
   const deleteFlashcard = () => {
