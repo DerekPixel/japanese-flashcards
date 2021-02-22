@@ -1,5 +1,3 @@
-// import * as f from './scripts/functions.js';
-
 import React, { useState } from 'react';
 
 import './App.css';
@@ -8,39 +6,40 @@ import Newcard from './components/Newcard';
 
 function App() {
 
-  function makeNewlocalStorageObject(){
+  //FUNCTIONS
+  const makeNewlocalStorageObject = () => {
 
-  var Data = [
-    {
-      japanese: 'おはようございます',
-      eng: 'Good Morning'
-    },
-    {
-      japanese: 'こんにちは',
-      eng: 'Hello / Good Afternoon'
-    },
-    {
-      japanese: 'こんばんは',
-      eng: 'Good Evening'
-    },
-    {
-      japanese: 'ありがとうございます',
-      eng: 'Thank you very much'
-    },
-  ]
+    var Data = [
+      {
+        japanese: 'おはようございます',
+        eng: 'Good Morning'
+      },
+      {
+        japanese: 'こんにちは',
+        eng: 'Hello / Good Afternoon'
+      },
+      {
+        japanese: 'こんばんは',
+        eng: 'Good Evening'
+      },
+      {
+        japanese: 'ありがとうございます',
+        eng: 'Thank you very much'
+      },
+    ]
 
-  return JSON.stringify(Data);
-};
+    return JSON.stringify(Data);
+  };
 
-function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
-  if(window.localStorage.getItem('userData') === null) {
-    window.localStorage.setItem('userData', makeNewlocalStorageObject());
-  } else {
-    return JSON.parse(window.localStorage.getItem('userData'));
-  }
+  const returnDataObjectIfExistsOrCreateDataObjectIfNot = () => {
+    if(window.localStorage.getItem('usersFlashcards') === null) {
+      window.localStorage.setItem('usersFlashcards', makeNewlocalStorageObject());
+    } else {
+      return JSON.parse(window.localStorage.getItem('usersFlashcards'));
+    }
 
-  return JSON.parse(window.localStorage.getItem('userData'));
-};
+    return JSON.parse(window.localStorage.getItem('usersFlashcards'));
+  };
 
   const shuffleArray = (array) => {
 
@@ -60,7 +59,7 @@ function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
 
   }
 
-  const shiftRightAnswer = (array) => {
+  const shiftCorrectAnswer = (array) => {
     var arrayCopy = array.slice();
     arrayCopy.shift();
     return arrayCopy;
@@ -72,21 +71,10 @@ function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
     return arrayCopy;
   }
 
-  const [allCards, setAllCards] = useState(returnDataObjectIfExistsOrCreateDataObjectIfNot())
-
-  const [randomizedCards, setRandomizedCards] = useState(shuffleArray(allCards))
-
-  const [japaneseInput, setJapaneseInput] = useState('');
-  const [engInput, setEngInput] = useState('');
-
-  const [flip, setFlip] = useState('');
-
-  const resetCardsState = () => {
-    setRandomizedCards(shuffleArray(allCards));
-  }
-
-  if(typeof randomizedCards[0] === 'undefined') {
-    resetCardsState();
+  const resetRandomCardsState = () => {
+    if(typeof randomizedCards[0] === 'undefined') {
+      setRandomizedCards(shuffleArray(allCards));
+    }
   }
 
   const pushNewFlashcardToCardsArrayAndUpdateLocalStorage = () => {
@@ -104,7 +92,7 @@ function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
     setAllCards(allCardsCopy);
     setRandomizedCards(shuffleArray(allCards));
 
-    window.localStorage.setItem('userData', JSON.stringify(allCards));
+    window.localStorage.setItem('usersFlashcards', JSON.stringify(allCards));
   }
 
   const deleteFlashcard = () => {
@@ -134,6 +122,19 @@ function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
     }
   }
 
+  //STATES
+  const [allCards, setAllCards] = useState(returnDataObjectIfExistsOrCreateDataObjectIfNot())
+
+  const [randomizedCards, setRandomizedCards] = useState(shuffleArray(allCards))
+
+  const [japaneseInput, setJapaneseInput] = useState('');
+  const [engInput, setEngInput] = useState('');
+
+  const [flip, setFlip] = useState('');
+
+  //catching if the cards array is empty and reseting it
+  resetRandomCardsState();
+
   return (
     <div className="App">
       <div>
@@ -146,7 +147,7 @@ function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
         <div className="right-wrong-buttons">
           <button
             className='correct'
-            onClick={() => setRandomizedCards(shiftRightAnswer(randomizedCards))}
+            onClick={() => setRandomizedCards(shiftCorrectAnswer(randomizedCards))}
           >
             I got it right
           </button>
