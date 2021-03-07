@@ -60,12 +60,20 @@ function App() {
   }
 
   const shiftCorrectAnswer = (array) => {
+    if(flip === 'flip') {
+      setIsVisiable('invisiable');
+      setFlip('');
+    }
     var arrayCopy = array.slice();
     arrayCopy.shift();
     return arrayCopy;
   }
 
   const pushAndShiftWrongAnswer = (array) => {
+    if(flip === 'flip') {
+      setIsVisiable('invisiable');
+      setFlip('');
+    }
     var arrayCopy = array.slice();
     arrayCopy.push(arrayCopy.shift());
     return arrayCopy;
@@ -116,8 +124,10 @@ function App() {
 
   const handleSetFlip = () => {
     if(flip === '') {
+      setIsVisiable('');
       setFlip('flip');
     } else {
+      setIsVisiable('invisiable');
       setFlip('');
     }
   }
@@ -131,6 +141,7 @@ function App() {
   const [engInput, setEngInput] = useState('');
 
   const [flip, setFlip] = useState('');
+  const [isVisiable, setIsVisiable] = useState('');
 
   //catching if the cards array is empty and reseting it
   resetRandomCardsState();
@@ -142,6 +153,7 @@ function App() {
           cards={randomizedCards} 
           onDelete={() => deleteFlashcard()} 
           flip={flip}
+          visiable={isVisiable}
           onClick={() => handleSetFlip()} 
         />
         <div className="right-wrong-buttons">

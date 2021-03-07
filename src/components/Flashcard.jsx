@@ -1,5 +1,5 @@
 
-const Flashcard = ({cards, onDelete, flip,  onClick}) => {
+const Flashcard = ({cards, onDelete, flip, visiable,  onClick}) => {
 
   var jap, eng;
 
@@ -15,7 +15,7 @@ const Flashcard = ({cards, onDelete, flip,  onClick}) => {
             <h2>{jap}</h2>
           </div>
           <div className="flip-card-back">
-            <h2>{eng}</h2>
+            <h2 id={visiable} >{eng}</h2>
           </div>
         </div>
       </div>
