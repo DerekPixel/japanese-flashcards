@@ -15,7 +15,9 @@ const Flashcard = ({cards, onDelete, flip, visiable,  onClick}) => {
             <h2>{jap}</h2>
           </div>
           <div className="flip-card-back">
-            <h2 id={visiable} >{eng}</h2>
+            {
+              visiable && <h2>{eng}</h2>
+            }
           </div>
         </div>
       </div>
