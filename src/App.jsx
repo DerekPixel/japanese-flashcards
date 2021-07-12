@@ -6,8 +6,20 @@ import Newcard from './components/Newcard';
 
 function App() {
 
+  //STATES
+  const [allCards, setAllCards] = useState(returnDataObjectIfExistsOrCreateDataObjectIfNot())
+
+  const [randomizedCards, setRandomizedCards] = useState(shuffleArray(allCards))
+
+  const [japaneseInput, setJapaneseInput] = useState('');
+  const [engInput, setEngInput] = useState('');
+
+  const [flip, setFlip] = useState('');
+  const [isVisiable, setIsVisiable] = useState(true);
+  const [answerIsRevealed, setAnswerIsRevealed] = useState(false);
+
   //FUNCTIONS
-  const makeNewlocalStorageObject = () => {
+  function makeNewlocalStorageObject() {
 
     var Data = [
       {
@@ -31,7 +43,7 @@ function App() {
     return JSON.stringify(Data);
   };
 
-  const returnDataObjectIfExistsOrCreateDataObjectIfNot = () => {
+  function returnDataObjectIfExistsOrCreateDataObjectIfNot() {
     if(window.localStorage.getItem('usersFlashcards') === null) {
       window.localStorage.setItem('usersFlashcards', makeNewlocalStorageObject());
     } else {
@@ -41,7 +53,7 @@ function App() {
     return JSON.parse(window.localStorage.getItem('usersFlashcards'));
   };
 
-  const shuffleArray = (array) => {
+  function shuffleArray(array) {
 
     var arrayCopy = array.slice();
 
@@ -59,33 +71,39 @@ function App() {
 
   }
 
-  const shiftCorrectAnswer = (array) => {
+  function shiftCorrectAnswer(array) {
     if(flip === 'flip') {
-      setIsVisiable('invisiable');
+      setIsVisiable(false);
       setFlip('');
     }
+
+    setAnswerIsRevealed(false);
+
     var arrayCopy = array.slice();
     arrayCopy.shift();
     return arrayCopy;
   }
 
-  const pushAndShiftWrongAnswer = (array) => {
+  function pushAndShiftWrongAnswer(array) {
     if(flip === 'flip') {
-      setIsVisiable('invisiable');
+      setIsVisiable(false);
       setFlip('');
     }
+
+    setAnswerIsRevealed(false);
+
     var arrayCopy = array.slice();
     arrayCopy.push(arrayCopy.shift());
     return arrayCopy;
   }
 
-  const resetRandomCardsState = () => {
+  function resetRandomCardsState() {
     if(typeof randomizedCards[0] === 'undefined') {
       setRandomizedCards(shuffleArray(allCards));
     }
   }
 
-  const pushNewFlashcardToCardsArrayAndUpdateLocalStorage = () => {
+  function pushNewFlashcardToCardsArrayAndUpdateLocalStorage() {
     var newFlashcard = {};
 
     newFlashcard.japanese = japaneseInput;
@@ -103,7 +121,7 @@ function App() {
     window.localStorage.setItem('usersFlashcards', JSON.stringify(allCardsCopy));
   }
 
-  const deleteFlashcard = () => {
+  function deleteFlashcard() {
 
     var allCardsCopy = allCards.slice();
     var randomizedCardsCopy = randomizedCards.slice();
@@ -122,26 +140,16 @@ function App() {
 
   }
 
-  const handleSetFlip = () => {
+  function handleSetFlip() {
     if(flip === '') {
-      setIsVisiable('');
+      setIsVisiable(true);
+      setAnswerIsRevealed(true);
       setFlip('flip');
-    } else {
-      setIsVisiable('invisiable');
+    } 
+    else {
       setFlip('');
     }
   }
-
-  //STATES
-  const [allCards, setAllCards] = useState(returnDataObjectIfExistsOrCreateDataObjectIfNot())
-
-  const [randomizedCards, setRandomizedCards] = useState(shuffleArray(allCards))
-
-  const [japaneseInput, setJapaneseInput] = useState('');
-  const [engInput, setEngInput] = useState('');
-
-  const [flip, setFlip] = useState('');
-  const [isVisiable, setIsVisiable] = useState('');
 
   //catching if the cards array is empty and reseting it
   resetRandomCardsState();
@@ -156,19 +164,30 @@ function App() {
           visiable={isVisiable}
           onClick={() => handleSetFlip()} 
         />
-        <div className="right-wrong-buttons">
-          <button
-            className='correct'
-            onClick={() => setRandomizedCards(shiftCorrectAnswer(randomizedCards))}
-          >
-            I got it right
-          </button>
-          <button
-            className='incorrect'
-            onClick={() => setRandomizedCards(pushAndShiftWrongAnswer(randomizedCards))}
-          >
-            I got it wrong
-          </button>
+
+        <div className="right-wrong-btns-and-reveal-answer-text-container">
+          {
+            answerIsRevealed ?
+            <div className="right-wrong-buttons">
+              <button
+                className='correct'
+                onClick={() => setRandomizedCards(shiftCorrectAnswer(randomizedCards))}
+              >
+                I got it right
+              </button>
+              <button
+                className='incorrect'
+                onClick={() => setRandomizedCards(pushAndShiftWrongAnswer(randomizedCards))}
+              >
+                I got it wrong
+              </button>
+            </div> :
+            <div
+              className='reveal-the-answer-text'
+              onClick={() => handleSetFlip()}
+            >Reveal the Answer</div>
+          }
+          
         </div>
       </div>
       <Newcard 
