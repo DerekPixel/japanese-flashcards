@@ -1,6 +1,6 @@
 .App {
   background-color: rgb(25, 25, 25);
-
+  color: white;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,10 +19,19 @@ label {
   color: white;
 }
 
+.right-wrong-btns-and-reveal-answer-text-container {
+  align-items: center;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+}
+
 .right-wrong-buttons {
   display: flex;
+  height: 2.25rem;
   margin: 10px, 0;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 .correct {
@@ -35,6 +44,10 @@ label {
   padding: 10px;
   background-color: red;
   color: white;
+}
+
+.reveal-the-answer-text {
+  cursor: pointer;
 }
 
 button {
@@ -57,7 +70,7 @@ button:hover {
 
 .card {
   position: relative;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 .card:hover {
