@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import './App.css';
+import DropDown from './components/DropDown';
 import Flashcard from './components/Flashcard';
 import Newcard from './components/Newcard';
 
@@ -156,6 +157,15 @@ function App() {
 
   return (
     <div className="App">
+
+      <header>
+        <DropDown 
+          dropDownMenuArray={[]}
+          setDropdownArray={() => console.log('hello')}
+          title='Select Category'
+        />
+      </header>
+
       <div>
         <Flashcard 
           cards={randomizedCards} 
