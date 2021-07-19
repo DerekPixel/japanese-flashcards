@@ -13,7 +13,7 @@ function App() {
   const [allCards, setAllCards] = useState(returnDataObjectIfExistsOrCreateDataObjectIfNot())
   const [selectedCategory, setSelectedCategory] = useState(allCards[Object.keys(allCards)[0]]);
 
-  const [randomizedCards, setRandomizedCards] = useState(shuffleArray(selectedCategory.cards))
+  const [randomizedCards, setRandomizedCards] = useState(shuffleArray(selectedCategory.cards));
 
   const [flip, setFlip] = useState('');
   const [isVisiable, setIsVisiable] = useState(true);
@@ -24,6 +24,7 @@ function App() {
   }, [selectedCategory]);
 
   //FUNCTIONS
+
   function makeNewlocalStorageObject() {
 
     var Flashcards = {
@@ -171,7 +172,7 @@ function App() {
         <DropDown 
           dropdownArray={allCards}
           setDropdownArray={(cards) => setAllCards(cards)}
-          setSelectedCategory={(array) => setSelectedCategory(shuffleArray(array))}
+          setSelectedCategory={(obj) => setSelectedCategory(obj)}
           title='Select Category'
         />
       </header>

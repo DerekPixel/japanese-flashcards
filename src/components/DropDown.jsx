@@ -48,7 +48,7 @@ const DropDown = ({dropdownArray = Array, title = String, setDropdownArray, setS
     itemCopy[keyname].selected = true
 
     setDropdownArray(itemCopy);
-    setSelectedCategory(itemCopy[keyname].cards);
+    setSelectedCategory(itemCopy[keyname]);
     setIsOpen(false);
     setHeaderTitle(e.target.textContent);
   }
