@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
+import { duplicateObjectsInArrayOrObject } from '../functions.jsx';
 
-const DropDown = ({dropDownMenuArray = Array, title = String, setDropdownArray}) => {
+const DropDown = ({dropdownArray = Array, title = String, setDropdownArray, setSelectedCategory}) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [headerTitle, setHeaderTitle] = useState(title)
@@ -14,14 +15,14 @@ const DropDown = ({dropDownMenuArray = Array, title = String, setDropdownArray})
     }
   }, [])
 
-  var dropDown = dropDownMenuArray.map((obj, i, list) => {
+  var dropDown = Object.keys(dropdownArray).map((keyname, i, list) => {
     return (
       <div
-        className={obj.selected ? 'dropdown-item selected' : 'dropdown-item'}
-        key={obj.index}
-        onClick={(e) => {handleItemClick(e, obj.index, list)}}
+        className={dropdownArray[keyname].selected ? 'dropdown-item selected' : 'dropdown-item'}
+        key={keyname}
+        onClick={(e) => {handleItemClick(e, keyname, dropdownArray)}}
       >
-        {obj.title}
+        {keyname}
       </div>
     )
   })
@@ -34,18 +35,20 @@ const DropDown = ({dropDownMenuArray = Array, title = String, setDropdownArray})
     }
   }
 
-  function handleItemClick(e, index, list = Array) {
-    var newList = list.slice();
+  function handleItemClick(e, keyname, item = Object) {
 
-    for(var i = 0; i < newList.length; i++) {
-      if(newList[i].selected === true) {
-        newList[i].selected = false;
+    var itemCopy = duplicateObjectsInArrayOrObject(item);
+
+    for(var i = 0; i < Object.keys(itemCopy).length; i++) {
+      if(itemCopy[Object.keys(itemCopy)[i]].selected === true) {
+        itemCopy[Object.keys(itemCopy)[i]].selected = false;
       }
     }
 
-    newList[index].selected = true;
+    itemCopy[keyname].selected = true
 
-    setDropdownArray(newList);
+    setDropdownArray(itemCopy);
+    setSelectedCategory(itemCopy[keyname].cards);
     setIsOpen(false);
     setHeaderTitle(e.target.textContent);
   }
