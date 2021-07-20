@@ -18,14 +18,34 @@ const DropDown = ({dropdownArray = Array, title = String, setDropdownArray, setS
   var dropDown = Object.keys(dropdownArray).map((keyname, i, list) => {
     return (
       <div
-        className={dropdownArray[keyname].selected ? 'dropdown-item selected' : 'dropdown-item'}
+        className='dropdown-item-container'
         key={keyname}
-        onClick={(e) => {handleItemClick(e, keyname, dropdownArray)}}
       >
-        {keyname}
+        <div
+          className={dropdownArray[keyname].selected ? 'dropdown-item selected' : 'dropdown-item'}
+          onClick={(e) => {handleItemClick(e, keyname, dropdownArray)}}
+        >
+          {keyname}
+        </div>
+        <button
+          className='dropdown-item-delete-btn'
+          onClick={() => {handleDeleteItem(keyname)}}
+        >X</button>
       </div>
     )
   })
+
+  function handleDeleteItem(keyname) {
+    if(Object.keys(dropdownArray).length > 1) {
+      var dropdownArrayCopy = duplicateObjectsInArrayOrObject(dropdownArray);
+
+      delete dropdownArrayCopy[keyname];
+  
+      setDropdownArray(dropdownArrayCopy);
+      setSelectedCategory(dropdownArrayCopy[Object.keys(dropdownArrayCopy)[0]]);
+      setHeaderTitle(Object.keys(dropdownArrayCopy)[0]);
+    }
+  }
 
   function handleDropdownHeaderClick() {
     if(isOpen) {
