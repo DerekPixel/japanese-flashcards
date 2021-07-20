@@ -47,7 +47,7 @@ function App() {
             eng: 'Thank you very much'
           },
         ],
-        selected: false,
+        selected: true,
         title: 'Common Phrases',
       },
       'The Home': {
