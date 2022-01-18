@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { duplicateObjectsInArrayOrObject, shuffleArray } from '../functions.jsx';
+import NewcardDropDown from "./NewcardDropDown.jsx";
 
 const Newcard = ({allcards, setAllCards, setRandomizedCards, resetCard}) => {
 
@@ -44,13 +45,14 @@ const Newcard = ({allcards, setAllCards, setRandomizedCards, resetCard}) => {
       <label htmlFor="english">English</label>
       <textarea name="english" id="eng" value={engInput} onChange={(e) => setEngInput(e.target.value)} ></textarea>
       <label htmlFor="category">Choose a Category</label>
-      <select 
-        name="category" 
-        defaultValue={allcards[Object.keys(allcards)[0]]}
-        onChange={(e) => setCategpryInput(e.target.value)}
-      >
-        {options}
-      </select>
+
+      <NewcardDropDown
+        originalDropDownObject={allcards}
+        setOriginalDropDownObject={setAllCards}
+        setSelectedCategory={setCategpryInput}
+        title={'Select Category'}
+      />
+      
       <button onClick={() => pushNewFlashcardToCardsArrayAndUpdateLocalStorage()} >Make New Card</button>
     </div>
 
