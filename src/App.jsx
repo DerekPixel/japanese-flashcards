@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 
 import './App.css';
-import DropDown from './components/DropDown';
+import DropDown from './components/CategoryDropDown';
 import Flashcard from './components/Flashcard';
 import Newcard from './components/Newcard';
 
@@ -170,8 +170,8 @@ function App() {
 
       <header>
         <DropDown 
-          dropdownArray={allCards}
-          setDropdownArray={(cards) => setAllCards(cards)}
+          originalDropDownObject={allCards}
+          setOriginalDropDownObject={(cards) => setAllCards(cards)}
           setSelectedCategory={(obj) => setSelectedCategory(obj)}
           title='Select Category'
         />
