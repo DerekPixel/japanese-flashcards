@@ -1,22 +1,22 @@
 
 export function duplicateObjectsInArrayOrObject(thingThatNeedsToBeDupped) {
-  var thingCopy, thingClone;
+  var thingCopy, thingClone, objClone;
 
-  if(Array.isArray(thingThatNeedsToBeDupped)) {
+  if(returnTrueIfInputIsAnArray(thingThatNeedsToBeDupped)) {
     thingCopy = thingThatNeedsToBeDupped.slice();
     thingClone = [];
     for(var i = 0; i < thingCopy.length; i++) {
-      var objClone = {...thingCopy[i]}
+      objClone = {...thingCopy[i]}
   
       thingClone.push(objClone);
     }
   } else {
     thingCopy = {...thingThatNeedsToBeDupped};
     thingClone = {};
-    for(var i = 0; i < Object.keys(thingCopy).length; i++) {
-      var objClone = {...thingCopy[Object.keys(thingCopy)[i]]}
+    for(var j = 0; j < Object.keys(thingCopy).length; j++) {
+      objClone = {...thingCopy[Object.keys(thingCopy)[j]]}
   
-      thingClone[Object.keys(thingCopy)[i]] = objClone;
+      thingClone[Object.keys(thingCopy)[j]] = objClone;
     }
   }
 
@@ -40,6 +40,9 @@ export function shuffleArray(array) {
   return arrayCopy
 }
 
+export function returnTrueIfInputIsAnArray(objectToCheck) {
+  return Array.isArray(objectToCheck);
+}
 
 function pimp() {
   console.log('pimp');
