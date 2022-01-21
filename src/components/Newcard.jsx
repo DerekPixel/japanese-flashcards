@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { duplicateObjectsInArrayOrObject, shuffleArray } from '../functions.jsx';
 import NewcardDropDown from "./NewcardDropDown.jsx";
 
-const Newcard = ({allcards, setAllCards, setRandomizedCards, resetCard}) => {
+const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selectedCategory}) => {
+
+  const [allCardsDupe, setAllCardsDupe] = useState(duplicateObjectsInArrayOrObject(allCards));
 
   const [japaneseInput, setJapaneseInput] = useState('');
   const [engInput, setEngInput] = useState('');
-  const [categoryInput, setCategpryInput] = useState('');
+  const [categoryInput, setCategoryInput] = useState(selectedCategory);
 
-  var options = Object.keys(allcards).map((keyname, i, list) => {
-    return (
-      <option 
-        key={keyname}
-        value={keyname}
-      >{keyname}</option>
-    )
-  })
+  useEffect(() => {
+    setAllCardsDupe(duplicateObjectsInArrayOrObject(allCards));
+  }, [allCards]);
+  
 
   function pushNewFlashcardToCardsArrayAndUpdateLocalStorage() {
     var newFlashcard = {};
@@ -26,7 +24,7 @@ const Newcard = ({allcards, setAllCards, setRandomizedCards, resetCard}) => {
     setJapaneseInput('');
     setEngInput('');
 
-    var allCardsCopy = duplicateObjectsInArrayOrObject(allcards);
+    var allCardsCopy = duplicateObjectsInArrayOrObject(allCards);
     allCardsCopy[categoryInput].cards.push(newFlashcard);
 
     resetCard();
@@ -47,9 +45,9 @@ const Newcard = ({allcards, setAllCards, setRandomizedCards, resetCard}) => {
       <label htmlFor="category">Choose a Category</label>
 
       <NewcardDropDown
-        originalDropDownObject={allcards}
-        setOriginalDropDownObject={setAllCards}
-        setSelectedCategory={setCategpryInput}
+        originalDropDownObject={allCardsDupe}
+        setOriginalDropDownObject={setAllCardsDupe}
+        setCategoryInput={setCategoryInput}
         title={'Select Category'}
       />
       
