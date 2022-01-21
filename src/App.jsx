@@ -214,8 +214,9 @@ function App() {
       <Newcard 
         setAllCards={(cards) => setAllCards(cards)}
         setRandomizedCards={(array) => setRandomizedCards(array)}
-        allcards={allCards}
+        allCards={allCards}
         resetCard={() => resetCardFlipAndVisibility()}
+        selectedCategory={selectedCategory.title}
       />
     </div>
   );
