@@ -11,7 +11,7 @@ const NewcardDropDown = ({
   title = String, 
   originalDropDownObject, 
   setOriginalDropDownObject, 
-  setSelectedCategory, 
+  setCategoryInput, 
   settings = settingsObject}) => {
 
   const [isOpen, setIsOpen] = useState(false);
@@ -90,7 +90,7 @@ const NewcardDropDown = ({
     newDropDownObject[indexOrKeyname].selected = true;
 
     setOriginalDropDownObject(newDropDownObject);
-    setSelectedCategory(indexOrKeyname);
+    setCategoryInput(indexOrKeyname);
 
     setIsOpen(false);
     setHeaderTitle(e.target.textContent);
