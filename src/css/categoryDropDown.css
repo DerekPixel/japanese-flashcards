@@ -1,5 +1,7 @@
 .dropdown {
-  background-color: rgb(25, 25, 25);
+  /* background-color: rgb(25, 25, 25); */
+  background-color: white;
+  color: black;
   position: relative;
   width: 222px;
 }
@@ -18,7 +20,8 @@
 }
 
 .dropdown-list {
-  background-color: rgb(25, 25, 25);
+  /* background-color: rgb(25, 25, 25); */
+  background-color: white;
   border: 1px black solid;
   border-top: none;
   max-height: 150px;
