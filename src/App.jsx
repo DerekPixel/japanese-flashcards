@@ -4,6 +4,7 @@ import './App.css';
 import DropDown from './components/CategoryDropDown';
 import Flashcard from './components/Flashcard';
 import Newcard from './components/Newcard';
+import NewCategory from './components/NewCategory';
 
 import {duplicateObjectsInArrayOrObject, shuffleArray} from './functions.jsx';
 
@@ -217,6 +218,10 @@ function App() {
         allCards={allCards}
         resetCard={() => resetCardFlipAndVisibility()}
         selectedCategory={selectedCategory.title}
+      />
+
+      <NewCategory
+      
       />
     </div>
   );
