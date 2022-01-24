@@ -24,6 +24,11 @@ function App() {
     setRandomizedCards(shuffleArray(selectedCategory.cards))
   }, [selectedCategory]);
 
+  useEffect(() => {
+    window.localStorage.setItem('usersFlashcards', JSON.stringify(allCards));
+  }, [allCards]);
+  
+
   //FUNCTIONS
 
   function makeNewlocalStorageObject() {
@@ -221,7 +226,8 @@ function App() {
       />
 
       <NewCategory
-      
+        allCards={allCards}
+        setAllCards={setAllCards}
       />
     </div>
   );
