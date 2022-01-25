@@ -34,11 +34,11 @@ function NewCategory({allCards, setAllCards}) {
     addNewCategoryToAllCards();
   }
 
-  return <div>
+  return <div className='new-category' >
 
     <h2>Add a New Category</h2>
 
-    <input type="text" onChange={handleChange} value={categoryTitle} />
+    <input className='new-categry-input' type="text" onChange={handleChange} value={categoryTitle} />
 
     <input type="submit" value="Click" onClick={handleClick} />
   </div>;
