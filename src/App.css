@@ -51,8 +51,21 @@ box-sizing: border-box;
 }
 /*#endregion*/
 
-.App {
+html {
   background-color: rgb(25, 25, 25);
+}
+
+/* 
+==================================
+Generic Elements
+==================================
+*/
+
+h2 {
+  margin: 1rem 0;
+}
+
+.App {
   color: white;
   height: 100vh;
   display: flex;
@@ -176,4 +189,15 @@ button:hover {
 
 #invisiable {
   display: none;
+}
+
+/* 
+==================================
+New Category
+==================================
+*/
+
+.new-category {
+  display: flex;
+  flex-direction: column;
 }
