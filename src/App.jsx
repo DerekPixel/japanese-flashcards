@@ -11,6 +11,7 @@ import {duplicateObjectsInArrayOrObject, shuffleArray} from './functions.jsx';
 function App() {
 
   //STATES
+  
   const [allCards, setAllCards] = useState(returnDataObjectIfExistsOrCreateDataObjectIfNot())
   const [selectedCategory, setSelectedCategory] = useState(allCards[Object.keys(allCards)[0]]);
 
@@ -19,6 +20,8 @@ function App() {
   const [flip, setFlip] = useState('');
   const [isVisiable, setIsVisiable] = useState(true);
   const [answerIsRevealed, setAnswerIsRevealed] = useState(false);
+
+  //EFFECTS
 
   useEffect(() => {
     setRandomizedCards(shuffleArray(selectedCategory.cards))
