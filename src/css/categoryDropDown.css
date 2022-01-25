@@ -3,15 +3,17 @@
   background-color: white;
   color: black;
   position: relative;
-  width: 222px;
-  margin: 1rem 0;
+  /* width: 222px; */
+  width: 90%;
+  margin: 0.5rem 0;
 }
 
 .dropdown-header {
   border: 1px black solid;
   cursor: pointer;
   padding: 5px;
-  width: 222px;
+  /* width: 222px; */
+  width: 100%;
   user-select: none;
 }
 
