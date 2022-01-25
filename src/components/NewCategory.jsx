@@ -40,7 +40,7 @@ function NewCategory({allCards, setAllCards}) {
 
     <input className='new-categry-input' type="text" onChange={handleChange} value={categoryTitle} />
 
-    <input type="submit" value="Click" onClick={handleClick} />
+    <input type="submit" value="Make New Category" onClick={handleClick} />
   </div>;
 }
 
