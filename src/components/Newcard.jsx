@@ -37,7 +37,7 @@ const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selected
 
   return (
 
-    <div className='form'>
+    <div className='new-card'>
       <label htmlFor='japanese' >Japanese</label>
       <textarea name="japanese" id="jap" value={japaneseInput} onChange={(e) => setJapaneseInput(e.target.value)} ></textarea>
       <label htmlFor="english">English</label>
@@ -51,7 +51,7 @@ const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selected
         title={'Select Category'}
       />
       
-      <button onClick={() => pushNewFlashcardToCardsArrayAndUpdateLocalStorage()} >Make New Card</button>
+      <input type="submit" value="Make New Card" onClick={pushNewFlashcardToCardsArrayAndUpdateLocalStorage} />
     </div>
 
   )
