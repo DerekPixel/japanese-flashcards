@@ -106,12 +106,7 @@ function App() {
   }
 
   function shiftCorrectAnswer(array) {
-    if(flip === 'flip') {
-      setIsVisiable(false);
-      setFlip('');
-    }
-
-    setAnswerIsRevealed(false);
+    resetCardFlipAndVisibility();
 
     var arrayCopy = array.slice();
     arrayCopy.shift();
@@ -119,12 +114,7 @@ function App() {
   }
 
   function pushAndShiftWrongAnswer(array) {
-    if(flip === 'flip') {
-      setIsVisiable(false);
-      setFlip('');
-    }
-
-    setAnswerIsRevealed(false);
+    resetCardFlipAndVisibility();
 
     var arrayCopy = array.slice();
     arrayCopy.push(arrayCopy.shift());
@@ -144,12 +134,11 @@ function App() {
     var randomizedCardsCopy = randomizedCards.slice();
     var removedObject = randomizedCardsCopy.shift();
 
-    var len = allCardsCopy[selectedCategory.title].cards.length;
+    var category = allCardsCopy[selectedCategory.title];
 
-    for(var i = 0; i < len; i++) {
-      if(allCardsCopy[selectedCategory.title].cards[i].eng === removedObject.eng && len >= 1) {
-        allCardsCopy[selectedCategory.title].cards.splice(i, 1);
-        len = allCardsCopy[selectedCategory.title].cards.length;
+    for(var i = 0; i < category.cards.length; i++) {
+      if(category.cards[i].eng === removedObject.eng && category.cards.length >= 1) {
+        category.cards.splice(i, 1);
       }
     }
 
