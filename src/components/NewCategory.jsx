@@ -6,8 +6,6 @@ function NewCategory({allCards, setAllCards}) {
 
   const [categoryTitle, setCategoryTitle] = useState('');
 
-
-
   function addNewCategoryToAllCards() {
     var allCardsClone = duplicateObjectsInArrayOrObject(allCards);
 
