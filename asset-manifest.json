@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/japanese-flashcards/static/css/main.b29ffd2d.chunk.css",
-    "main.js": "/japanese-flashcards/static/js/main.9650b2ed.chunk.js",
-    "main.js.map": "/japanese-flashcards/static/js/main.9650b2ed.chunk.js.map",
-    "runtime-main.js": "/japanese-flashcards/static/js/runtime-main.1dd22ffc.js",
-    "runtime-main.js.map": "/japanese-flashcards/static/js/runtime-main.1dd22ffc.js.map",
-    "static/js/2.59b6590d.chunk.js": "/japanese-flashcards/static/js/2.59b6590d.chunk.js",
-    "static/js/2.59b6590d.chunk.js.map": "/japanese-flashcards/static/js/2.59b6590d.chunk.js.map",
-    "static/js/3.49001f83.chunk.js": "/japanese-flashcards/static/js/3.49001f83.chunk.js",
-    "static/js/3.49001f83.chunk.js.map": "/japanese-flashcards/static/js/3.49001f83.chunk.js.map",
+    "main.css": "/japanese-flashcards/static/css/main.b67406af.chunk.css",
+    "main.js": "/japanese-flashcards/static/js/main.63771d23.chunk.js",
+    "main.js.map": "/japanese-flashcards/static/js/main.63771d23.chunk.js.map",
+    "runtime-main.js": "/japanese-flashcards/static/js/runtime-main.cf1435a9.js",
+    "runtime-main.js.map": "/japanese-flashcards/static/js/runtime-main.cf1435a9.js.map",
+    "static/js/2.19aa86ac.chunk.js": "/japanese-flashcards/static/js/2.19aa86ac.chunk.js",
+    "static/js/2.19aa86ac.chunk.js.map": "/japanese-flashcards/static/js/2.19aa86ac.chunk.js.map",
+    "static/js/3.56e968e2.chunk.js": "/japanese-flashcards/static/js/3.56e968e2.chunk.js",
+    "static/js/3.56e968e2.chunk.js.map": "/japanese-flashcards/static/js/3.56e968e2.chunk.js.map",
     "index.html": "/japanese-flashcards/index.html",
-    "static/css/main.b29ffd2d.chunk.css.map": "/japanese-flashcards/static/css/main.b29ffd2d.chunk.css.map",
-    "static/js/2.59b6590d.chunk.js.LICENSE.txt": "/japanese-flashcards/static/js/2.59b6590d.chunk.js.LICENSE.txt"
+    "static/css/main.b67406af.chunk.css.map": "/japanese-flashcards/static/css/main.b67406af.chunk.css.map",
+    "static/js/2.19aa86ac.chunk.js.LICENSE.txt": "/japanese-flashcards/static/js/2.19aa86ac.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1dd22ffc.js",
-    "static/js/2.59b6590d.chunk.js",
-    "static/css/main.b29ffd2d.chunk.css",
-    "static/js/main.9650b2ed.chunk.js"
+    "static/js/runtime-main.cf1435a9.js",
+    "static/js/2.19aa86ac.chunk.js",
+    "static/css/main.b67406af.chunk.css",
+    "static/js/main.63771d23.chunk.js"
   ]
 }
