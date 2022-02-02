@@ -12,7 +12,7 @@ const Flashcard = ({cards, onDelete, flip, visiable,  onClick}) => {
       <div onClick={onClick} className="flip-card" >
         <div className="flip-card-inner" id={flip}>
           <div className="flip-card-front">
-            <h2>{jap}</h2>
+            <p>{jap}</p>
           </div>
           <div className="flip-card-back">
             {
