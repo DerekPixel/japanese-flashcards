@@ -30,7 +30,7 @@
   max-height: 150px;
   overflow-y: auto;
   position: absolute;
-  width: inherit;
+  width: 100%;
   z-index: 10;
 }
 
