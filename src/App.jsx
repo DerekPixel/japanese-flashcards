@@ -209,18 +209,19 @@ function App() {
           
         </div>
       </div>
-      <Newcard 
-        setAllCards={(cards) => setAllCards(cards)}
-        setRandomizedCards={(array) => setRandomizedCards(array)}
-        allCards={allCards}
-        resetCard={() => resetCardFlipAndVisibility()}
-        selectedCategory={selectedCategory.title}
-      />
-
-      <NewCategory
-        allCards={allCards}
-        setAllCards={setAllCards}
-      />
+      <div className="new-category-and-new-cards">
+        <Newcard
+          setAllCards={(cards) => setAllCards(cards)}
+          setRandomizedCards={(array) => setRandomizedCards(array)}
+          allCards={allCards}
+          resetCard={() => resetCardFlipAndVisibility()}
+          selectedCategory={selectedCategory.title}
+        />
+        <NewCategory
+          allCards={allCards}
+          setAllCards={setAllCards}
+        />
+      </div>
     </div>
   );
 }
