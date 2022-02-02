@@ -38,8 +38,16 @@ const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selected
   return (
 
     <div className='new-card'>
+
+      <h2>ADD A NEW CARD</h2>
+
       <label htmlFor='japanese' >Japanese</label>
-      <textarea name="japanese" id="jap" value={japaneseInput} onChange={(e) => setJapaneseInput(e.target.value)} ></textarea>
+      <textarea 
+        name="japanese" 
+        id="jap" 
+        value={japaneseInput} 
+        onChange={(e) => setJapaneseInput(e.target.value)} 
+      ></textarea>
       <label htmlFor="english">English</label>
       <textarea name="english" id="eng" value={engInput} onChange={(e) => setEngInput(e.target.value)} ></textarea>
       <label htmlFor="category">Choose a Category</label>
