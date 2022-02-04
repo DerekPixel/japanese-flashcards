@@ -1,9 +1,7 @@
 .dropdown {
-  /* background-color: rgb(25, 25, 25); */
   background-color: white;
   color: black;
   position: relative;
-  /* width: 222px; */
   width: 90%;
   margin: 0.5rem 0;
 }
@@ -12,7 +10,6 @@
   border: 1px black solid;
   cursor: pointer;
   padding: 5px;
-  /* width: 222px; */
   width: 100%;
   user-select: none;
 }
@@ -23,7 +20,6 @@
 }
 
 .dropdown-list {
-  /* background-color: rgb(25, 25, 25); */
   background-color: white;
   border: 1px black solid;
   border-top: none;
