@@ -67,10 +67,9 @@ h2 {
   border-bottom: 2px solid white;
 }
 
-header {
+main {
   display: flex;
-  justify-content: center;
-  width: 300px; 
+  flex-wrap: wrap;
 }
 
 label {
@@ -116,8 +115,9 @@ APP
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
+  min-height: 100vh;
   text-align: center;
 }
 
@@ -126,6 +126,7 @@ APP
   display: flex;
   height: 3rem;
   justify-content: center;
+  width: 300px;
 }
 
 .right-wrong-buttons {
@@ -153,7 +154,33 @@ APP
 }
 
 
+/* 
+==================================
+Flashcard and category select
+==================================
+*/
 
+.flashcard-and-category-select {
+  display: flex;
+  flex-grow: 3;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* width: 50%; */
+}
+
+.category-select-dropdown-container {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  width: 300px;
+}
+
+/* 
+==================================
+Flashcard
+==================================
+*/
 
 .flip-card {
   background-color: transparent;
@@ -219,6 +246,7 @@ APP
   display: none;
 }
 
+
 /* 
 ==================================
 New Category and New Cards
@@ -227,8 +255,11 @@ New Category and New Cards
 
 .new-category-and-new-cards {
   display: flex;
+  flex-grow: 1;
+  /* flex-shrink: 1; */
   flex-direction: column;
   align-items: center;
+  /* width: 50%; */
 }
 
 /* 
