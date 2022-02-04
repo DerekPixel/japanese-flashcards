@@ -1,10 +1,11 @@
 import React, { useState, useEffect} from 'react';
 
 import './App.css';
-import DropDown from './components/CategoryDropDown';
-import Flashcard from './components/Flashcard';
-import Newcard from './components/Newcard';
-import NewCategory from './components/NewCategory';
+import CategoryDropDown from './components/CategoryDropDown.jsx';
+import Flashcard from './components/Flashcard.jsx';
+import Newcard from './components/Newcard.jsx';
+import NewCategory from './components/NewCategory.jsx';
+import RightAndWrongButtons from './components/RightAndWrongButtons.jsx';
 
 import {duplicateObjectsInArrayOrObject, shuffleArray} from './functions.jsx';
 
@@ -165,63 +166,54 @@ function App() {
 
   return (
     <div className="App">
+      <main>
+        <div className='flashcard-and-category-select'>
 
-      <header>
-        <DropDown 
-          originalDropDownObject={allCards}
-          setOriginalDropDownObject={(cards) => setAllCards(cards)}
-          setSelectedCategory={(obj) => setSelectedCategory(obj)}
-          title='Select Category'
-        />
-      </header>
+          <div className="category-select-dropdown-container">
+            <CategoryDropDown
+              originalDropDownObject={allCards}
+              setOriginalDropDownObject={(cards) => setAllCards(cards)}
+              setSelectedCategory={(obj) => setSelectedCategory(obj)}
+              title='Select Category'
+            />
+          </div>
 
-      <div>
-        <Flashcard 
-          cards={randomizedCards} 
-          onDelete={() => deleteFlashcard()} 
-          flip={flip}
-          visiable={isVisiable}
-          onClick={() => handleSetFlip()} 
-        />
+          <Flashcard
+            cards={randomizedCards}
+            onDelete={() => deleteFlashcard()}
+            flip={flip}
+            visiable={isVisiable}
+            onClick={() => handleSetFlip()}
+          />
 
-        <div className="right-wrong-btns-and-reveal-answer-text-container">
-          {
-            answerIsRevealed ?
-            <div className="right-wrong-buttons">
-              <button
-                className='correct'
-                onClick={() => setRandomizedCards(shiftCorrectAnswer(randomizedCards))}
-              >
-                I got it right
-              </button>
-              <button
-                className='incorrect'
-                onClick={() => setRandomizedCards(pushAndShiftWrongAnswer(randomizedCards))}
-              >
-                I got it wrong
-              </button>
-            </div> :
-            <div
-              className='reveal-the-answer-text'
-              onClick={() => handleSetFlip()}
-            >Reveal the Answer</div>
-          }
-          
+          <RightAndWrongButtons
+            answerIsRevealed={answerIsRevealed}
+            randomizedCards={randomizedCards}
+            setRandomizedCards={setRandomizedCards}
+            shiftCorrectAnswer={shiftCorrectAnswer}
+            pushAndShiftWrongAnswer={pushAndShiftWrongAnswer}
+            handleSetFlip={handleSetFlip}
+          />
+
         </div>
-      </div>
-      <div className="new-category-and-new-cards">
-        <Newcard
-          setAllCards={(cards) => setAllCards(cards)}
-          setRandomizedCards={(array) => setRandomizedCards(array)}
-          allCards={allCards}
-          resetCard={() => resetCardFlipAndVisibility()}
-          selectedCategory={selectedCategory.title}
-        />
-        <NewCategory
-          allCards={allCards}
-          setAllCards={setAllCards}
-        />
-      </div>
+
+        <div className="new-category-and-new-cards">
+
+          <Newcard
+            setAllCards={(cards) => setAllCards(cards)}
+            setRandomizedCards={(array) => setRandomizedCards(array)}
+            allCards={allCards}
+            resetCard={() => resetCardFlipAndVisibility()}
+            selectedCategory={selectedCategory.title}
+          />
+
+          <NewCategory
+            allCards={allCards}
+            setAllCards={setAllCards}
+          />
+
+        </div>
+      </main>
     </div>
   );
 }
