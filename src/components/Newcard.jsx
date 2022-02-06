@@ -39,7 +39,7 @@ const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selected
 
     <div className='new-card'>
 
-      <h2>ADD A NEW CARD</h2>
+      <h2>Add a New Card</h2>
 
       <label htmlFor='japanese' >Japanese</label>
       <textarea 
