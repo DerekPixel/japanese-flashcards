@@ -51,6 +51,10 @@ box-sizing: border-box;
 }
 /*#endregion*/
 
+:root {
+  font-family: sans-serif;
+}
+
 html {
   background-color: rgb(25, 25, 25);
 }
@@ -62,9 +66,12 @@ Generic Elements
 */
 
 h2 {
+  background-color: rgb(25, 102, 255);
   margin: 0.5rem 0;
+  padding: 0.125rem 0;
   font-size: 20px;
-  border-bottom: 2px solid white;
+  width: 100%;
+  /* border-bottom: 2px solid white; */
 }
 
 main {
@@ -74,6 +81,8 @@ main {
 
 label {
   color: white;
+  margin: 0.250rem 0;
+  width: 90%;
 }
 
 input[type='text'] {
@@ -81,7 +90,9 @@ input[type='text'] {
 }
 
 input[type='submit'] {
+  background-color: hsl(90, 100%, 40%);
   margin: 0.5rem 0;
+  padding: 0.250rem 0.5rem;
   border-radius: 0.33rem;
   border: none;
 }
@@ -95,12 +106,8 @@ button:hover {
   cursor: pointer;
 }
 
-label {
-  margin: 0.5rem 0;
-  width: 100%;
-}
-
 textarea {
+  margin: 0.5rem 0;
   width: 90%;
   height: 4.6875rem;
 }
@@ -145,7 +152,7 @@ APP
 
 .incorrect {
   padding: 10px;
-  background-color: red;
+  background-color: #800000;
   color: white;
 }
 
@@ -237,7 +244,7 @@ Flashcard
 }
 
 .flip-card-back {
-  background-color: dodgerblue;
+  background-color: rgb(25, 102, 255);
   color: white;
   transform: rotateX(180deg);
 }
