@@ -56,7 +56,7 @@ box-sizing: border-box;
 }
 
 html {
-  background-color: rgb(25, 25, 25);
+  background-color: hsl(0, 0%, 10%);
 }
 
 /* 
@@ -65,13 +65,20 @@ Generic Elements
 ==================================
 */
 
+h1 {
+  background-color: hsl(220, 100%, 55%);
+  margin-bottom: 0.5rem;
+  padding: 0.125rem 0;
+  font-size: 24px;
+  width: 100%;
+}
+
 h2 {
-  background-color: rgb(25, 102, 255);
-  margin: 0.5rem 0;
+  background-color: hsl(220, 100%, 55%);
+  margin-bottom: 0.5rem;
   padding: 0.125rem 0;
   font-size: 20px;
   width: 100%;
-  /* border-bottom: 2px solid white; */
 }
 
 main {
@@ -80,25 +87,26 @@ main {
 }
 
 label {
+  background-color: hsl(220, 100%, 55%);
   color: white;
+  padding: 0.125rem 0;
   margin: 0.250rem 0;
-  width: 90%;
+  width: 80%;
 }
 
 input[type='text'] {
   width: 90%;
 }
 
-input[type='submit'] {
+button {
+  border: none;
+}
+
+button#submit {
   background-color: hsl(90, 100%, 40%);
   margin: 0.5rem 0;
   padding: 0.250rem 0.5rem;
   border-radius: 0.33rem;
-  border: none;
-}
-
-button {
-  border: none;
 }
 
 input[type='submit'],
@@ -146,13 +154,13 @@ APP
 
 .correct {
   padding: 10px;
-  background-color: green;
+  background-color: hsl(120, 100%, 25%);
   color: white;
 }
 
 .incorrect {
   padding: 10px;
-  background-color: #800000;
+  background-color: hsl(0, 100%, 25%);
   color: white;
 }
 
@@ -173,13 +181,14 @@ Flashcard and category select
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* width: 50%; */
+  /* margin: 1rem 0; */
 }
 
-.category-select-dropdown-container {
+.flashcard-and-category-select-inner-container {
+  background-color: hsl(0, 0%, 20%);
   display: flex;
-  /* align-items: center; */
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 300px;
 }
 
@@ -191,8 +200,8 @@ Flashcard
 
 .flip-card {
   background-color: transparent;
-  width: 300px;
-  height: 200px;
+  width: 270px;
+  height: 180px;
   perspective: 400px; /* Remove this if you don't want the 3D effect */
 }
 
@@ -244,7 +253,7 @@ Flashcard
 }
 
 .flip-card-back {
-  background-color: rgb(25, 102, 255);
+  background-color: hsl(220, 100%, 55%);
   color: white;
   transform: rotateX(180deg);
 }
@@ -263,10 +272,8 @@ New Category and New Cards
 .new-category-and-new-cards {
   display: flex;
   flex-grow: 1;
-  /* flex-shrink: 1; */
   flex-direction: column;
   align-items: center;
-  /* width: 50%; */
 }
 
 /* 
@@ -276,8 +283,9 @@ New Card
 */
 
 .new-card {
+  background-color: hsl(0, 0%, 20%);
   display: flex;
-  margin: 0.5rem 0;
+  margin-top: 1rem;
   width: 18.75rem;
   flex-direction: column;
   align-items: center;
@@ -290,10 +298,11 @@ New Category
 */
 
 .new-category {
+  background-color: hsl(0, 0%, 20%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0.5rem 0;
+  margin-top: 1rem;
   width: 18.75rem;
 }
 
