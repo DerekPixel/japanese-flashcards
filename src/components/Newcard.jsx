@@ -59,7 +59,7 @@ const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selected
         title={'Select Category'}
       />
       
-      <input type="submit" value="Make New Card" onClick={pushNewFlashcardToCardsArrayAndUpdateLocalStorage} />
+      <button id="submit" onClick={pushNewFlashcardToCardsArrayAndUpdateLocalStorage} >Make New Card</button>
     </div>
 
   )
