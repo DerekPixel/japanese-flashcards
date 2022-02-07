@@ -169,35 +169,44 @@ function App() {
       <main>
         <div className='flashcard-and-category-select'>
 
-          <div className="category-select-dropdown-container">
+          <div className="flashcard-and-category-select-inner-container">
+
+            <h1>Flashcard</h1>
+
             <CategoryDropDown
               originalDropDownObject={allCards}
               setOriginalDropDownObject={(cards) => setAllCards(cards)}
               setSelectedCategory={(obj) => setSelectedCategory(obj)}
               title='Select Category'
             />
+          
+
+            <Flashcard
+              cards={randomizedCards}
+              onDelete={() => deleteFlashcard()}
+              flip={flip}
+              visiable={isVisiable}
+              onClick={() => handleSetFlip()}
+            />
+
+            <RightAndWrongButtons
+              answerIsRevealed={answerIsRevealed}
+              randomizedCards={randomizedCards}
+              setRandomizedCards={setRandomizedCards}
+              shiftCorrectAnswer={shiftCorrectAnswer}
+              pushAndShiftWrongAnswer={pushAndShiftWrongAnswer}
+              handleSetFlip={handleSetFlip}
+            />
           </div>
-
-          <Flashcard
-            cards={randomizedCards}
-            onDelete={() => deleteFlashcard()}
-            flip={flip}
-            visiable={isVisiable}
-            onClick={() => handleSetFlip()}
-          />
-
-          <RightAndWrongButtons
-            answerIsRevealed={answerIsRevealed}
-            randomizedCards={randomizedCards}
-            setRandomizedCards={setRandomizedCards}
-            shiftCorrectAnswer={shiftCorrectAnswer}
-            pushAndShiftWrongAnswer={pushAndShiftWrongAnswer}
-            handleSetFlip={handleSetFlip}
-          />
 
         </div>
 
         <div className="new-category-and-new-cards">
+
+          <NewCategory
+            allCards={allCards}
+            setAllCards={setAllCards}
+          />
 
           <Newcard
             setAllCards={(cards) => setAllCards(cards)}
@@ -205,11 +214,6 @@ function App() {
             allCards={allCards}
             resetCard={() => resetCardFlipAndVisibility()}
             selectedCategory={selectedCategory.title}
-          />
-
-          <NewCategory
-            allCards={allCards}
-            setAllCards={setAllCards}
           />
 
         </div>
