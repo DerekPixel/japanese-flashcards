@@ -188,8 +188,10 @@ Flashcard and category select
   background-color: hsl(0, 0%, 20%);
   display: flex;
   flex-direction: column;
+  /* flex-grow: 1; */
+  /* aspect-ratio: 1.5; */
   align-items: center;
-  width: 300px;
+  width: 500px;
 }
 
 /* 
@@ -198,16 +200,8 @@ Flashcard
 ==================================
 */
 
-.flip-card {
-  background-color: transparent;
-  width: 270px;
-  height: 180px;
-  perspective: 400px; /* Remove this if you don't want the 3D effect */
-}
-
 .card {
   position: relative;
-  /* margin-bottom: 10px; */
 }
 
 .card:hover {
@@ -221,6 +215,13 @@ Flashcard
   top: 5px;
   right: 5px;
   z-index: 1;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 270px;
+  height: 180px;
+  perspective: 400px; /* Remove this if you don't want the 3D effect */
 }
 
 .flip-card-inner {
