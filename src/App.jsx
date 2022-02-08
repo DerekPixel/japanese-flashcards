@@ -166,7 +166,7 @@ function App() {
 
   return (
     <div className="App">
-      <main>
+      {/* <main> */}
         <div className='flashcard-and-category-select'>
 
           <div className="flashcard-and-category-select-inner-container">
@@ -217,7 +217,7 @@ function App() {
           />
 
         </div>
-      </main>
+      {/* </main> */}
     </div>
   );
 }
