@@ -81,10 +81,10 @@ h2 {
   width: 100%;
 }
 
-main {
+/* main {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 
 label {
   background-color: hsl(220, 100%, 55%);
@@ -129,8 +129,9 @@ APP
 .App {
   color: white;
   display: flex;
-  flex-direction: column;
-  /* align-items: center; */
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  align-items: center;
   justify-content: center;
   min-height: 100vh;
   text-align: center;
@@ -177,21 +178,20 @@ Flashcard and category select
 
 .flashcard-and-category-select {
   display: flex;
-  flex-grow: 3;
-  flex-direction: column;
+  flex: 3 1 66%;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  /* margin: 1rem 0; */
 }
 
 .flashcard-and-category-select-inner-container {
   background-color: hsl(0, 0%, 20%);
   display: flex;
   flex-direction: column;
-  /* flex-grow: 1; */
-  /* aspect-ratio: 1.5; */
   align-items: center;
-  width: 500px;
+  width: 80%;
+  max-width: 480px;
+  min-width: 300px;
 }
 
 /* 
@@ -202,6 +202,7 @@ Flashcard
 
 .card {
   position: relative;
+  width: 100%;
 }
 
 .card:hover {
@@ -212,16 +213,18 @@ Flashcard
   color: black;
   background-color: palevioletred;
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 5%;
+  right: 10%;
   z-index: 1;
 }
 
 .flip-card {
   background-color: transparent;
-  width: 270px;
-  height: 180px;
+  aspect-ratio: 3 / 2;
+  width: 90%;
+  /* height: 60%; */
   perspective: 400px; /* Remove this if you don't want the 3D effect */
+  margin: 0 auto;
 }
 
 .flip-card-inner {
@@ -259,6 +262,10 @@ Flashcard
   transform: rotateX(180deg);
 }
 
+.flip-card-text {
+  font-size: 18px;
+}
+
 #invisiable {
   display: none;
 }
@@ -272,7 +279,8 @@ New Category and New Cards
 
 .new-category-and-new-cards {
   display: flex;
-  flex-grow: 1;
+  flex: 1 1 33%;
+  /* flex-grow: 1; */
   flex-direction: column;
   align-items: center;
 }
