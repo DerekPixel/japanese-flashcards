@@ -3,6 +3,7 @@
   color: black;
   position: relative;
   width: 90%;
+  max-width: 300px;
   margin: 0.5rem 0;
 }
 
