@@ -25,7 +25,9 @@ function App() {
   //EFFECTS
 
   useEffect(() => {
-    setRandomizedCards(shuffleArray(selectedCategory.cards))
+    if(!returnTrueIfSelectedCategoryIsEmpty()) {
+      setRandomizedCards(shuffleArray(selectedCategory.cards));
+    }
   }, [selectedCategory]);
 
   useEffect(() => {
@@ -58,6 +60,7 @@ function App() {
           },
         ],
         selected: true,
+        empty: false,
         title: 'Common Phrases',
       },
       'The Home': {
@@ -80,6 +83,7 @@ function App() {
           },
         ],
         selected: false,
+        empty: false,
         title: 'The Home',
       },
 
@@ -151,14 +155,20 @@ function App() {
   }
 
   function handleSetFlip() {
-    if(flip === '') {
-      setIsVisiable(true);
-      setAnswerIsRevealed(true);
-      setFlip('flip');
-    } 
-    else {
-      setFlip('');
+    if(!returnTrueIfSelectedCategoryIsEmpty()) {
+      if(flip === '') {
+        setIsVisiable(true);
+        setAnswerIsRevealed(true);
+        setFlip('flip');
+      } 
+      else {
+        setFlip('');
+      }
     }
+  }
+
+  function returnTrueIfSelectedCategoryIsEmpty() {
+    return allCards[selectedCategory.title].empty;
   }
 
   //catching if the cards array is empty and reseting it
@@ -180,13 +190,13 @@ function App() {
               title='Select Category'
             />
           
-
             <Flashcard
               cards={randomizedCards}
-              onDelete={() => deleteFlashcard()}
+              onDelete={deleteFlashcard}
               flip={flip}
               visiable={isVisiable}
-              onClick={() => handleSetFlip()}
+              onClick={handleSetFlip}
+              returnTrueIfSelectedCategoryIsEmpty={returnTrueIfSelectedCategoryIsEmpty}
             />
 
             <RightAndWrongButtons
@@ -212,7 +222,7 @@ function App() {
             setAllCards={(cards) => setAllCards(cards)}
             setRandomizedCards={(array) => setRandomizedCards(array)}
             allCards={allCards}
-            resetCard={() => resetCardFlipAndVisibility()}
+            resetCard={resetCardFlipAndVisibility}
             selectedCategory={selectedCategory.title}
           />
 
