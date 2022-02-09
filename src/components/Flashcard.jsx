@@ -1,11 +1,19 @@
 
-const Flashcard = ({cards, onDelete, flip, visiable,  onClick}) => {
+function Flashcard({cards, onDelete, flip, visiable,  onClick, returnTrueIfSelectedCategoryIsEmpty}) {
 
   var jap, eng;
 
-  jap = cards[0].japanese;
-  eng = cards[0]. eng;
+  if(returnTrueIfSelectedCategoryIsEmpty()) {
+    jap = 'This Cateogry is Empty';
+    eng = 'This Cateogry is Empty';
+  } else {
+    jap = cards[0].japanese;
+    eng = cards[0]. eng;
+  }
   
+  // jap = cards[0].japanese;
+  // eng = cards[0]. eng;
+
   return (
     <div className='card'>
       <button className='delete' onClick={onDelete} >Delete</button>
