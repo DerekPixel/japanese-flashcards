@@ -28,6 +28,7 @@ function App() {
     if(!returnTrueIfSelectedCategoryIsEmpty()) {
       setRandomizedCards(shuffleArray(selectedCategory.cards));
     }
+    // eslint-disable-next-line
   }, [selectedCategory]);
 
   useEffect(() => {
@@ -167,8 +168,12 @@ function App() {
     }
   }
 
-  function returnTrueIfSelectedCategoryIsEmpty() {
-    return allCards[selectedCategory.title].empty;
+  function returnTrueIfSelectedCategoryIsEmpty(category = selectedCategory) {
+
+    if(typeof category === 'string') {
+      return allCards[category].empty;
+    }
+    return allCards[category.title].empty;
   }
 
   //catching if the cards array is empty and reseting it
@@ -224,6 +229,7 @@ function App() {
             allCards={allCards}
             resetCard={resetCardFlipAndVisibility}
             selectedCategory={selectedCategory.title}
+            returnTrueIfSelectedCategoryIsEmpty={returnTrueIfSelectedCategoryIsEmpty}
           />
 
         </div>
