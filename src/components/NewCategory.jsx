@@ -20,6 +20,7 @@ function NewCategory({allCards, setAllCards}) {
     var newObj = {};
     newObj.cards = [];
     newObj.selected = false;
+    newObj.empty = true;
     newObj.title = categoryTitle;
     return newObj;
   }

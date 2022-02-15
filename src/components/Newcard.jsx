@@ -2,13 +2,20 @@ import React, { useState, useEffect } from "react";
 import { duplicateObjectsInArrayOrObject, shuffleArray } from '../functions.jsx';
 import NewcardDropDown from "./NewcardDropDown.jsx";
 
-const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selectedCategory}) => {
+const Newcard = ({
+  allCards, 
+  setAllCards, 
+  setRandomizedCards, 
+  resetCard, 
+  selectedCategory,
+  returnTrueIfSelectedCategoryIsEmpty
+}) => {
 
   const [allCardsDupe, setAllCardsDupe] = useState(duplicateObjectsInArrayOrObject(allCards));
 
   const [japaneseInput, setJapaneseInput] = useState('');
   const [engInput, setEngInput] = useState('');
-  const [categoryInput, setCategoryInput] = useState(selectedCategory);
+  const [categoryInput, setCategoryInput] = useState(selectedCategory.title);
 
   useEffect(() => {
     setAllCardsDupe(duplicateObjectsInArrayOrObject(allCards));
@@ -26,6 +33,10 @@ const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selected
 
     var allCardsCopy = duplicateObjectsInArrayOrObject(allCards);
     allCardsCopy[categoryInput].cards.push(newFlashcard);
+
+    if(returnTrueIfSelectedCategoryIsEmpty(categoryInput)) {
+      allCardsCopy[categoryInput].empty = false;
+    }
 
     resetCard();
 
@@ -48,10 +59,11 @@ const Newcard = ({allCards, setAllCards, setRandomizedCards, resetCard, selected
         value={japaneseInput} 
         onChange={(e) => setJapaneseInput(e.target.value)} 
       ></textarea>
+
       <label htmlFor="english">English</label>
       <textarea name="english" id="eng" value={engInput} onChange={(e) => setEngInput(e.target.value)} ></textarea>
-      <label htmlFor="category">Choose a Category</label>
 
+      <label htmlFor="category">Choose a Category</label>
       <NewcardDropDown
         originalDropDownObject={allCardsDupe}
         setOriginalDropDownObject={setAllCardsDupe}
