@@ -1,22 +1,15 @@
 {
   "files": {
-    "main.css": "/japanese-flashcards/static/css/main.ec7feb6f.chunk.css",
-    "main.js": "/japanese-flashcards/static/js/main.24f06d25.chunk.js",
-    "main.js.map": "/japanese-flashcards/static/js/main.24f06d25.chunk.js.map",
-    "runtime-main.js": "/japanese-flashcards/static/js/runtime-main.cf1435a9.js",
-    "runtime-main.js.map": "/japanese-flashcards/static/js/runtime-main.cf1435a9.js.map",
-    "static/js/2.19aa86ac.chunk.js": "/japanese-flashcards/static/js/2.19aa86ac.chunk.js",
-    "static/js/2.19aa86ac.chunk.js.map": "/japanese-flashcards/static/js/2.19aa86ac.chunk.js.map",
-    "static/js/3.56e968e2.chunk.js": "/japanese-flashcards/static/js/3.56e968e2.chunk.js",
-    "static/js/3.56e968e2.chunk.js.map": "/japanese-flashcards/static/js/3.56e968e2.chunk.js.map",
+    "main.css": "/japanese-flashcards/static/css/main.44ea6d09.css",
+    "main.js": "/japanese-flashcards/static/js/main.4e0f8175.js",
+    "static/js/787.6dc49ec1.chunk.js": "/japanese-flashcards/static/js/787.6dc49ec1.chunk.js",
     "index.html": "/japanese-flashcards/index.html",
-    "static/css/main.ec7feb6f.chunk.css.map": "/japanese-flashcards/static/css/main.ec7feb6f.chunk.css.map",
-    "static/js/2.19aa86ac.chunk.js.LICENSE.txt": "/japanese-flashcards/static/js/2.19aa86ac.chunk.js.LICENSE.txt"
+    "main.44ea6d09.css.map": "/japanese-flashcards/static/css/main.44ea6d09.css.map",
+    "main.4e0f8175.js.map": "/japanese-flashcards/static/js/main.4e0f8175.js.map",
+    "787.6dc49ec1.chunk.js.map": "/japanese-flashcards/static/js/787.6dc49ec1.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.cf1435a9.js",
-    "static/js/2.19aa86ac.chunk.js",
-    "static/css/main.ec7feb6f.chunk.css",
-    "static/js/main.24f06d25.chunk.js"
+    "static/css/main.44ea6d09.css",
+    "static/js/main.4e0f8175.js"
   ]
 }
