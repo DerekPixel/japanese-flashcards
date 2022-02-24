@@ -52,16 +52,15 @@ const Newcard = ({
 
       <h2>Add a New Card</h2>
 
-      <label htmlFor='japanese' >Japanese</label>
+      <label htmlFor='jap' >Japanese</label>
       <textarea 
-        name="japanese" 
         id="jap" 
         value={japaneseInput} 
         onChange={(e) => setJapaneseInput(e.target.value)} 
       ></textarea>
 
-      <label htmlFor="english">English</label>
-      <textarea name="english" id="eng" value={engInput} onChange={(e) => setEngInput(e.target.value)} ></textarea>
+      <label htmlFor="eng">English</label>
+      <textarea id="eng" value={engInput} onChange={(e) => setEngInput(e.target.value)} ></textarea>
 
       <label htmlFor="category">Choose a Category</label>
       <NewcardDropDown
