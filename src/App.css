@@ -81,11 +81,6 @@ h2 {
   width: 100%;
 }
 
-/* main {
-  display: flex;
-  flex-wrap: wrap;
-} */
-
 label {
   background-color: hsl(220, 100%, 55%);
   color: white;
