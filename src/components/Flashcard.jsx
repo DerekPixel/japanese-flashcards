@@ -10,9 +10,6 @@ function Flashcard({cards, onDelete, flip, visiable,  onClick, returnTrueIfSelec
     jap = cards[0].japanese;
     eng = cards[0]. eng;
   }
-  
-  // jap = cards[0].japanese;
-  // eng = cards[0]. eng;
 
   return (
     <div className='card'>
