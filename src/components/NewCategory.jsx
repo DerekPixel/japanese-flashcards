@@ -38,7 +38,7 @@ function NewCategory({allCards, setAllCards}) {
     <h2>Add a New Category</h2>
 
     <label htmlFor="category Title">Category Title</label>
-    <input className='new-category-input' type="text" name='category Title' onChange={handleChange} value={categoryTitle} />
+    <input className='new-category-input' type="text" id='category Title' onChange={handleChange} value={categoryTitle} />
 
     <button id="submit" onClick={handleClick}>Make New Category</button>
   </div>;
