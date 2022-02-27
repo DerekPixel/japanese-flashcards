@@ -20,6 +20,7 @@ const NewcardDropDown = ({
   const [searchInput, setSearchInput] = useState('');
 
   const dropDownRef = useRef(null);
+  const dropDownInputRef = useRef(null);
 
   useEffect(() => {
     document.addEventListener('click', handleDocumentClick);
@@ -187,26 +188,39 @@ const NewcardDropDown = ({
   }
 
   function returnDropDownHeaderDivOrSearchInput() {
-    if(settings.isSearchable) {
-      if(isOpen) {
-        return <div>
-          <input
-            autoFocus
-            className='dropdown-header search-input'
-            type="search"
-            value={searchInput}
-            onChange={(e) => handleSearch(e)}
-          />
-        </div>
-      } 
-    } 
 
     return <div
       className='dropdown-header'
-      onClick={() => {handleDropdownHeaderClick()}}
+      onClick={handleDropdownHeaderClick}
+      ref={dropDownRef}
     >
-      {headerTitle}
+      {
+        returnSearchInputOrTitle()
+      }
+
+      <div
+        className={isOpen ? 'dropdown-indicator opened' : 'dropdown-indicator'}
+      >
+        <span className="iconify" data-icon="bi:caret-left-fill"></span>
+      </div>
     </div>
+  }
+
+  function returnSearchInputOrTitle() {
+    if(isOpen && settingsObject.isSearchable) {
+      return (
+        <input
+          ref={dropDownInputRef}
+          autoFocus
+          className='search-input'
+          type="search"
+          value={searchInput}
+          onChange={(e) => handleSearch(e)} 
+        />          
+      )
+    }
+    
+    return <div className="dropdown-title">{headerTitle}</div> 
   }
 
   function duplicateObjectsInArrayOrObject(thingThatNeedsToBeDupped) {
